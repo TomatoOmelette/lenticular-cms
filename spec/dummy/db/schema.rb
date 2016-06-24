@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619211159) do
+ActiveRecord::Schema.define(version: 20160624002414) do
+
+  create_table "lenticular_cms_categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "slug"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["slug"], name: "index_lenticular_cms_categories_on_slug"
+  end
 
   create_table "lenticular_cms_posts", force: :cascade do |t|
     t.integer  "category_id"
@@ -23,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160619211159) do
     t.string   "slug"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["slug"], name: "index_lenticular_cms_posts_on_slug"
   end
 
 end
