@@ -1,0 +1,49 @@
+#lcms-admin-nav {
+  li {
+    min-height:34px;
+    display:block;
+  }
+  a {
+    font-size:14px;
+    font-weight:400;
+    line-height:18px;
+    padding:8px 0;
+    display:block;
+    color:#eee;
+    text-decoration:none;
+    &.submenu-trigger {
+      background-color:#0073aa;
+      &.submenu-collapsed {
+        background-color:transparent;
+      }
+    }
+    &.active {
+      font-weight:bold;
+      color:white;
+    }
+  }
+  padding:0;
+  margin:0;
+  list-style:none;
+  ul.lcms-submenu {
+    display:block;
+    list-style:none;
+    padding:0;
+    margin:0;
+    background-color:#333;
+    a {
+      padding-left:12px;
+      padding-right:12px;
+    }
+    &.lcms-submenu-collapsed {
+      display:none;
+    }
+  }
+  span.menu-image {
+    display:block;
+    float:left;
+    width:36px;
+    height:34px;
+    text-align:center;
+  }
+}

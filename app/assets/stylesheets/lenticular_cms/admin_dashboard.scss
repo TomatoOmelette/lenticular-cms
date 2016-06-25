@@ -1,0 +1,19 @@
+#lcms-dashboard {
+  background-color:#222;
+}
+#lcms-dashboard-header {
+  color:#8c8c8c;
+  a {
+    color:#8c8c8c;
+    &:hover {
+      text-decoration:none;
+      color:#aaa;
+    }
+  }
+  h1 {
+    font-size:18px;
+  }
+}
+#lcms-dashboard-content {
+  background-color:#eee;
+}

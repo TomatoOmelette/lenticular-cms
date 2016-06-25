@@ -16,7 +16,11 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", ">= 5.0.0.rc1", "< 5.1"
+  s.add_dependency 'rails', '>= 5.0.0.rc1', '< 5.1'
+  s.add_dependency 'sass-rails', '~> 5.0'
+  s.add_dependency 'jquery-rails'
+  s.add_dependency 'turbolinks', '~> 5.0.0.beta'
+  s.add_dependency 'bootstrap-sass', '~> 3.3.6'
   s.add_dependency 'friendly_id', '~> 5.1.0'
   s.add_dependency 'mini_magick', '~> 4.5.1'
   s.add_dependency 'carrierwave', '~> 0.11.2'
