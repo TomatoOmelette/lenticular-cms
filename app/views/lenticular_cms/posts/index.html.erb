@@ -22,7 +22,7 @@
           </div>
         </td>
         <td><%= post.author %></td>
-        <td><%= post.category.name %>
+        <td><%= post.categories.pluck(:name).join(' ') %>
         <td><%= post.slug %></td>
       </tr>
     <% end %>

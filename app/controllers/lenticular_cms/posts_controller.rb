@@ -51,12 +51,12 @@ module LenticularCms
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_post
-        @post = Post.find(params[:id])
+        @post = Post.friendly.find(params[:id])
       end
 
       # Only allow a trusted parameter "white list" through.
       def post_params
-        params.require(:post).permit(:category_id, :title, :subheading, :content, :author, :image, :slug)
+        params.require(:post).permit(:title, :subheading, :content, :author, :image, :slug, category_ids: [])
       end
   end
 end

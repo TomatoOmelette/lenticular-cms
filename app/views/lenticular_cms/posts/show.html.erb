@@ -2,7 +2,7 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @post.category_id %>
+  <%= @post.categories.pluck(:name).join(', ') %>
 </p>
 
 <p>
