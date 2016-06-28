@@ -1,0 +1,15 @@
+<div class="panel panel-default lcms-db-panel">
+  <div class="panel-heading panel-collapser" role="button" data-toggle="collapse" data-target="#lcms-db-activity" aria-expanded="true" aria-controls="lcms-db-activity">
+    <strong>Activity</strong> <span class="glyphicon glyphicon-chevron-up"></span><span class="glyphicon glyphicon-chevron-down"></span>
+  </div>
+  <div id="lcms-db-activity" class="collapse in">
+    <div class="panel-body">
+      <h5>Recently published posts</h5>
+      <ul class="list-unstyled">
+      <% @recently_published.each do |post| %>
+        <li><span><%= post.created_at.strftime('%B %e, %l:%M %P') %></span> <%= link_to "#{post.title}", post %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

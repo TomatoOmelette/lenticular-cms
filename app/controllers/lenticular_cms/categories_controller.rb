@@ -6,6 +6,7 @@ module LenticularCms
 
     # GET /categories
     def index
+      @category = Category.new
       @categories = Category.all
     end
 

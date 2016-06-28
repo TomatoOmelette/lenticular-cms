@@ -11,24 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+    <p class="help-block">The name that appears on your site.</p>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_area :description, class: 'form-control', rows: 5 %>
   </div>
 
   <% if category.persisted? %>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :slug %>
-    <%= f.text_field :slug %>
+    <%= f.text_field :slug, class: 'form-control' %>
   </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <%= f.submit 'Add new category', class: 'btn btn-primary' %>
   </div>
 <% end %>

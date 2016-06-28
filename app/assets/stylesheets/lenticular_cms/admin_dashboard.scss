@@ -52,3 +52,29 @@
     }
   }
 }
+
+div.panel-collapser {
+  span.glyphicon {
+    float:right;
+  }
+  span.glyphicon-chevron-down {
+    display:none;
+  }
+  &.collapsed {
+    span.glyphicon-chevron-up {
+      display:none;
+    }
+    span.glyphicon-chevron-down {
+      display:inline-block;
+    }
+  }
+}
+
+#lcms-db-activity {
+  ul > li {
+    > span {
+      display:inline-block;
+      padding-right:20px;
+    }
+  }
+}

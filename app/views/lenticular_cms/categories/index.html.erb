@@ -1,31 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Categories</h1>
+<h1 class="h2">Categories</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Slug</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-sm-4">
+    <h4>Add New Category</h4>
+    <%= render 'form', category: @category %>
+  </div>
+  <div class="col-sm-8">
+    <table class="datatable table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Slug</th>
+          <th>Count</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= category.description %></td>
-        <td><%= category.slug %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Category', new_category_path %>
+      <tbody>
+        <% @categories.each do |category| %>
+          <tr>
+            <td><%= category.name %>
+              <div class="row-actions">
+                <%= link_to 'Edit', edit_category_path(category) %> | <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure? Posts in this category will be moved to the category named "uncategorized"' } %> | <%= link_to 'View'%>
+              </div>
+            </td>
+            <td><%= category.description %></td>
+            <td><%= category.slug %></td>
+            <td><%= category.posts.count %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

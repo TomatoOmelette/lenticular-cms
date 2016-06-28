@@ -1,0 +1,12 @@
+<div class="panel panel-default lcms-db-panel">
+  <div class="panel-heading panel-collapser" role="button" data-toggle="collapse" data-target="#lcms-db-summary" aria-expanded="true" aria-controls="lcms-db-summary">
+    <strong>Overview</strong> <span class="glyphicon glyphicon-chevron-up"></span><span class="glyphicon glyphicon-chevron-down"></span>
+  </div>
+  <div id="lcms-db-summary" class="collapse in">
+    <div class="panel-body">
+      <%= link_to posts_path do %>
+      <span class="glyphicon glyphicon-pushpin"></span> <%= pluralize @post_count, 'Post' %>
+      <% end %>
+    </div>
+  </div>
+</div>

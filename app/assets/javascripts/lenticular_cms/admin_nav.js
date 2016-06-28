@@ -3,7 +3,6 @@ var lcmsAdminNav = {
   events: function(el) {
     var that = this;
     $('a.submenu-trigger').click(function(e){
-      e.preventDefault();
       that.toggleMenu(this);
     });
     $('#lcms-admin-nav a.top-level-link, #lcms-admin-nav ul.lcms-submenu a').click(function(e) {
@@ -28,7 +27,7 @@ var lcmsAdminNav = {
     }
   },
   toggleMenu: function(trigger) {
-    var target = $(trigger).attr('href');
+    var target = $(trigger).data('target');
     if ($(trigger).hasClass('submenu-collapsed')) {
       $(trigger).removeClass('submenu-collapsed');
       $(target).removeClass('lcms-submenu-collapsed');

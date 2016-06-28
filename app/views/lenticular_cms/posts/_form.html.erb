@@ -28,8 +28,8 @@
       <%= f.file_field :image %>
     </div>
     <div class="col-sm-6">
-       <%= f.label :categories, class: "control-label" %><br>
-      <%= f.select :category_ids, LenticularCms::Category.all.collect {|x| [x.name, x.id]}, { class: 'form-control' }, :multiple => true %>
+       <%= f.label 'Select Categories', class: "control-label" %><br>
+      <%= f.select :category_ids, LenticularCms::Category.all.collect {|x| [x.name, x.id]}, { }, :multiple => true, class: 'form-control'  %>
     </div>
   </div>
   <% if false %>
