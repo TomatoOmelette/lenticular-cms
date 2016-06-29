@@ -9,7 +9,7 @@
       </div>
       <div class="form-group">
         <span class="glyphicon glyphicon-pushpin"></span> Status: <strong><%= post.status.titleize %></strong>
-        <a href="#lcms-compose-publish-options" class="exploding-link" onclick="adminUtilities.explodeLink(this, event)"><u>Edit</u></a>
+        <a href="#lcms-compose-publish-options" class="exploding-link" onclick="lcmsAdminUtilities.explodeLink(this, event)"><u>Edit</u></a>
       </div>
       <div class="form-group inline-controls exploding-link-target" id="lcms-compose-publish-options">
         <%= f.select :status, [['Draft', 'draft'], ['Published', 'published'], ['Pending Review', 'pending review']], {}, { class: 'form-control input-sm left-control' } %><%= f.submit 'OK', class: "btn btn-default btn-sm" %>

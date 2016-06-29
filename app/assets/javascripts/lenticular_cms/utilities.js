@@ -1,4 +1,4 @@
-var adminUtilities = {
+var lcmsUtilities = {
   'explodeLink': function(el, e) {
     e.preventDefault();
     var target = $(el).attr('href');
