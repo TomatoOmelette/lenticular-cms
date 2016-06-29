@@ -3,6 +3,7 @@ require_dependency "lenticular_cms/application_controller"
 module LenticularCms
   class PostsController < ApplicationController
     before_action :set_post, only: [:show, :edit, :update, :destroy]
+    before_action :set_status, only: [:create, :update]
 
     # GET /posts
     def index
@@ -16,10 +17,12 @@ module LenticularCms
     # GET /posts/new
     def new
       @post = Post.new
+      render layout: 'layouts/lenticular_cms/dashboard'
     end
 
     # GET /posts/1/edit
     def edit
+      render layout: 'layouts/lenticular_cms/dashboard'
     end
 
     # POST /posts
@@ -49,14 +52,22 @@ module LenticularCms
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
+      def set_status
+        params[:post][:status] = available_status
+      end
+
+      def available_status
+        { 'Publish' => 'published',
+          'Draft' => 'draft',
+          'OK' => post_params[:status] }[params[:commit]] || 'draft'
+      end
+
       def set_post
         @post = Post.friendly.find(params[:id])
       end
 
-      # Only allow a trusted parameter "white list" through.
       def post_params
-        params.require(:post).permit(:title, :subheading, :content, :author, :image, :slug, category_ids: [])
+        params.require(:post).permit(:title, :subheading, :content, :author, :image, :slug, :status, category_ids: [])
       end
   end
 end

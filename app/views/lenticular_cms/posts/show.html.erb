@@ -1,39 +1,53 @@
-<p id="notice"><%= notice %></p>
+<%
+meta title: "#{@post.title}",
+     description: "#{@post.subheading}",
+     author: @post.author,
+     copyright: "Copyright (c) #{Time.now.year}",
+     og: {
+       locale: 'en_US',
+       type: 'website',
+       title: "#{@post.title}",
+       description: "#{@post.subheading}",
+       image: "#{@post.image_url(:md).to_s}",
+       site_name: '',
+       url: "#{request.original_url}"
+     }
+%>
+<article id="post">
+<div class="hcrumbs" id='headercrumbs'>
+  <%= render_breadcrumbs :tag => :div, :separator => " > " %>
+</div>
+<% if false && current_user && current_user.try(:is_admin?) %>
+  <div class="admin-header text-right">
+    <%= link_to edit_category_post_path(@post.category, @post) do %>
+      <span class="glyphicon glyphicon-edit"></span> Edit
+    <% end %>
+  </div>
+<% end %>
+<h1 class="post-heading" itemprop="headline"><%= @post.title %></h1>
+<div id="post-meta" class="row">
+  <div id="updated-at" class="col-sm-6">
+  <span>Last updated:</span>
+  <time datetime="<%= @post.updated_at.strftime("%F") %>">
+    <span class="date"><%= @post.updated_at.strftime("%B %-d, %Y") %></span>
+  </time>
+  </div>
+  <div id="created-at" class="col-sm-6">
+  <span>Originally published:</span>
+  <time datetime="<%= @post.created_at.strftime("%F") %>">
+    <span class="date"><%= @post.created_at.strftime("%B %-d, %Y") %></span>
+  </time>
+  <meta itemprop="datePublished" content="<%= @post.created_at.to_time.iso8601 %>">
+  </div>
+</div>
 
-<p>
-  <strong>Category:</strong>
-  <%= @post.categories.pluck(:name).join(', ') %>
-</p>
+<h2 class="post-subheading" itemprop="description"><%= @post.subheading %></h2>
+<%= image_tag(@post.image_url(:md).to_s, class: 'featured-image img-responsive', itemprop: 'image') if @post.image? %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+  <div>
+    <%= @post.content.to_s.html_safe %>
+  </div>
+</article>
 
-<p>
-  <strong>Subheading:</strong>
-  <%= @post.subheading %>
-</p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @post.author %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @post.image %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @post.slug %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>

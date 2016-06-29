@@ -1,19 +1,30 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @category.name %>
+  <% if @category.description %>
+    <br>
+    <small><%= @category.description %></small>
+  <% end %>
+</h1>
+<% if @posts.length == 0 %>
+  <p class="text-info">Sorry, there aren't any posts in this category yet.</p>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+<% @posts.each do |post| %>
+<div class="row">
+  <div class="col-md-12 post-preview">
+    <div class="row">
+      <div class="col-sm-7">
+        <h5><%= @category.name.singularize %></h5>
+        <h2><%= link_to post.title, post %></h2>
+        <%= link_to post.subheading, post, class: 'post-description' %>
+      </div>
+      <div class="col-sm-5">
+        <%= link_to post do %>
+          <%= image_tag(post.image_url(:post_thumb).to_s, class: 'featured-image img-responsive') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @category.description %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @category.slug %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>

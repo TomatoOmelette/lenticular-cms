@@ -6,21 +6,23 @@ module LenticularCms
 
     # GET /categories
     def index
-      @category = Category.new
       @categories = Category.all
     end
 
     # GET /categories/1
     def show
+      @posts = @category.posts
     end
 
     # GET /categories/new
     def new
       @category = Category.new
+      render layout: 'layouts/lenticular_cms/dashboard'
     end
 
     # GET /categories/1/edit
     def edit
+      render layout: 'layouts/lenticular_cms/dashboard'
     end
 
     # POST /categories
@@ -28,16 +30,16 @@ module LenticularCms
       @category = Category.new(category_params)
 
       if @category.save
-        redirect_to @category, notice: 'Category was successfully created.'
+        redirect_to dashboard_categories_path, notice: 'Category was successfully created.'
       else
-        render :new
+        render action: :new, layout: 'layouts/lenticular_cms/dashboard'
       end
     end
 
     # PATCH/PUT /categories/1
     def update
       if @category.update(category_params)
-        redirect_to @category, notice: 'Category was successfully updated.'
+        redirect_to dashboard_categories_path, notice: 'Category was successfully updated.'
       else
         render :edit
       end
@@ -46,7 +48,7 @@ module LenticularCms
     # DELETE /categories/1
     def destroy
       @category.destroy
-      redirect_to categories_url, notice: 'Category was successfully destroyed.'
+      redirect_to dashboard_categories_path, notice: 'Category was successfully destroyed.'
     end
 
     private

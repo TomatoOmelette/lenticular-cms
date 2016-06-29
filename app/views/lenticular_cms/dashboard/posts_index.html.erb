@@ -1,0 +1,27 @@
+<h1 class="h2">Posts <%= link_to 'Add New', new_post_path, class: 'btn btn-default' %></h1>
+<table class="datatable table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Category</th>
+      <th>Slug</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td>
+          <strong><%= link_to post.title, post %></strong>
+          <div class="row-actions">
+            <%= link_to 'Edit', edit_post_path(post), data: { turbolinks: 'false' } %> | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure you want to delete this post? This is permanent.' } %> | <%= link_to 'View', post %>
+          </div>
+        </td>
+        <td><%= post.author %></td>
+        <td><%= post.categories.pluck(:name).join(' ') %>
+        <td><%= post.slug %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

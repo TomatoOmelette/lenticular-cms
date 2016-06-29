@@ -25,6 +25,9 @@ Gem::Specification.new do |s|
   s.add_dependency 'mini_magick', '~> 4.5.1'
   s.add_dependency 'carrierwave', '~> 0.11.2'
   s.add_dependency 'jquery-datatables-rails', '~> 3.4.0'
+  s.add_dependency 'metamagic', '~> 3.1.7'
+  s.add_dependency 'breadcrumbs_on_rails', '2.3.1'
+  s.add_dependency 'tinymce-rails', '~> 4.3.13'
   s.add_development_dependency "sqlite3"
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'capybara'

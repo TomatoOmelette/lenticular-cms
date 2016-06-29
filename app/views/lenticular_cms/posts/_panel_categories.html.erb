@@ -1,0 +1,19 @@
+<div class="panel panel-default lcms-db-panel">
+  <div class="panel-heading panel-collapser" role="button" data-toggle="collapse" data-target="#lcms-compose-categories" aria-expanded="true" aria-controls="lcms-compose-categories">
+    <strong>Categories</strong> <span class="glyphicon glyphicon-chevron-up"></span><span class="glyphicon glyphicon-chevron-down"></span>
+  </div>
+  <div id="lcms-compose-categories" class="collapse in">
+    <div class="panel-body">
+      <div class="well">
+      <%= f.select(:category_ids, LenticularCms::Category.all.collect {|x| [x.name, x.id]}, { }, :multiple => true, class: 'form-control') if false %>
+      <%= f.collection_check_boxes :category_ids, LenticularCms::Category.all, :id, :name do |cat|  %>
+         <div class="checkbox">
+             <%= cat.label do %>
+               <%= cat.check_box %> <%= cat.object.name %>
+             <% end %>
+         </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

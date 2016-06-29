@@ -8,13 +8,13 @@
   </li>
   <li class="has-dropdown">
     <div class="dropdown">
-    <a class="submenu-collapsed submenu-trigger" role="button" data-target="#post-links" aria-expanded="false" href="<%= posts_path %>">
+    <a class="submenu-collapsed submenu-trigger" role="button" data-target="#post-links" aria-expanded="false" href="<%= dashboard_posts_path %>">
       <span class="menu-image"><span class="glyphicon glyphicon-pushpin"></span></span> Posts
     </a>
     <ul id="post-links" class="lcms-submenu lcms-submenu-collapsed">
-      <li><%= link_to "All posts", posts_path %></li>
-      <li><%= link_to "Add new", new_post_path %></li>
-      <li><%= link_to "Categories", categories_path %></li>
+      <li><%= link_to "All posts", dashboard_posts_path %></li>
+      <li><%= link_to "Add new", new_post_path, data: { 'turbolinks' => 'false' } %></li>
+      <li><%= link_to "Categories", dashboard_categories_path %></li>
     </ul>
   </div>
   </li>

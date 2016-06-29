@@ -1,0 +1,22 @@
+<div class="panel panel-default lcms-db-panel">
+  <div class="panel-heading panel-collapser" role="button" data-toggle="collapse" data-target="#lcms-compose-publish" aria-expanded="true" aria-controls="lcms-compose-publish">
+    <strong>Publish</strong> <span class="glyphicon glyphicon-chevron-up"></span><span class="glyphicon glyphicon-chevron-down"></span>
+  </div>
+  <div id="lcms-compose-publish" class="collapse in">
+    <div class="panel-body">
+      <div class="form-group">
+        <%= f.submit 'Save Draft', class: "btn btn-default btn-sm", status: 'draft' %>
+      </div>
+      <div class="form-group">
+        <span class="glyphicon glyphicon-pushpin"></span> Status: <strong><%= post.status.titleize %></strong>
+        <a href="#lcms-compose-publish-options" class="exploding-link" onclick="adminUtilities.explodeLink(this, event)"><u>Edit</u></a>
+      </div>
+      <div class="form-group inline-controls exploding-link-target" id="lcms-compose-publish-options">
+        <%= f.select :status, [['Draft', 'draft'], ['Published', 'published'], ['Pending Review', 'pending review']], {}, { class: 'form-control input-sm left-control' } %><%= f.submit 'OK', class: "btn btn-default btn-sm" %>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <%= f.submit 'Publish', class: "btn btn-primary btn-sm", status: 'published' %>
+    </div>
+  </div>
+</div>

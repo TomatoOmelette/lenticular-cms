@@ -1,7 +1,7 @@
-#lcms-dashboard {
+#lcms-db {
   background-color:#222;
 }
-#lcms-dashboard-header {
+#lcms-db-header {
   color:#8c8c8c;
   a {
     color:#8c8c8c;
@@ -14,7 +14,7 @@
     font-size:18px;
   }
 }
-#lcms-dashboard-content {
+#lcms-db-content {
   background-color:#eee;
   padding-bottom:100px;
   table.datatable {
@@ -76,5 +76,36 @@ div.panel-collapser {
       display:inline-block;
       padding-right:20px;
     }
+  }
+}
+
+#lcms-db-messages {
+  div.alert {
+    margin-top:15px;
+    margin-bottom:0;
+  }
+}
+
+div.form-group.inline-controls {
+  select.form-control, input.form-control {
+    display:inline-block;
+    width:auto;
+    &.left-control {
+      margin-right:5px;
+    }
+  }
+}
+
+.exploding-link-target {
+  display:none;
+}
+
+@media only screen and (min-width: 960px) {
+  #mceu_33 {
+    position:absolute;
+    top:0;
+    right:0;
+    margin:5px 5px 0 0;
+    border-left:0;
   }
 }
